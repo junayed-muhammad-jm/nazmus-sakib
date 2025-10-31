@@ -1,10 +1,10 @@
 import { motion } from "framer-motion";
-
 import emailjs from "@emailjs/browser";
-import { useRef } from "react";
+import { useRef, useState } from "react";
 
 const Contact = () => {
   const form = useRef<HTMLFormElement>(null);
+  const [status, setStatus] = useState<string>("");
 
   const sendEmail = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -21,12 +21,12 @@ const Contact = () => {
       .then(
         (result) => {
           console.log("SUCCESS:", result.text);
-          alert("Message sent successfully!");
+          setStatus("Message sent successfully!");
           form.current?.reset();
         },
         (error) => {
           console.error("ERROR:", error.text);
-          alert("Failed to send message. Please try again.");
+          setStatus("Failed to send message. Please try again.");
         }
       );
   };
@@ -54,7 +54,6 @@ const Contact = () => {
           onSubmit={sendEmail}
           className="space-y-6 flex flex-col"
         >
-          {/* Name */}
           <input
             type="text"
             name="name"
@@ -63,7 +62,6 @@ const Contact = () => {
             className="w-full p-4 rounded-xl shadow-md bg-white/70 dark:bg-gray-800/70 backdrop-blur-md focus:outline-none focus:ring-2 focus:ring-indigo-500 transition-all"
           />
 
-          {/* Email */}
           <input
             type="email"
             name="email"
@@ -72,7 +70,6 @@ const Contact = () => {
             className="w-full p-4 rounded-xl shadow-md bg-white/70 dark:bg-gray-800/70 backdrop-blur-md focus:outline-none focus:ring-2 focus:ring-indigo-500 transition-all"
           />
 
-          {/* Mobile */}
           <input
             type="tel"
             name="mobile"
@@ -80,16 +77,14 @@ const Contact = () => {
             className="w-full p-4 rounded-xl shadow-md bg-white/70 dark:bg-gray-800/70 backdrop-blur-md focus:outline-none focus:ring-2 focus:ring-indigo-500 transition-all"
           />
 
-          {/* Message */}
           <textarea
             name="message"
             placeholder="Your Message"
-            rows="5"
+            rows={5}
             required
             className="w-full p-4 rounded-xl shadow-md bg-white/70 dark:bg-gray-800/70 backdrop-blur-md focus:outline-none focus:ring-2 focus:ring-indigo-500 transition-all"
           ></textarea>
 
-          {/* Submit */}
           <motion.button
             type="submit"
             className="bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-white font-medium py-3 px-8 rounded-2xl shadow-lg hover:scale-105 transition-transform"
@@ -98,6 +93,15 @@ const Contact = () => {
             Send Message
           </motion.button>
         </form>
+
+        {status && (
+          <p
+            className={`text-center text-sm font-medium ${status.includes("success") ? "text-green-600" : "text-red-600"
+              }`}
+          >
+            {status}
+          </p>
+        )}
       </motion.div>
     </section>
   );
