@@ -1,30 +1,38 @@
 import { motion } from "framer-motion";
 
-// Online skill icon links (free sources)
+// Meta Marketing Skills
 const skills = [
     {
-        name: "Digital Marketing",
-        src: "https://cdn-icons-png.flaticon.com/512/3135/3135715.png",
+        name: "Facebook Ads",
+        src: "https://cdn-icons-png.flaticon.com/512/733/733547.png",
     },
     {
-        name: "SEO",
-        src: "https://cdn-icons-png.flaticon.com/512/616/616408.png",
+        name: "Meta Business",
+        src: "https://cdn-icons-png.flaticon.com/512/174/174848.png",
     },
     {
-        name: "Google Ads",
-        src: "https://cdn-icons-png.flaticon.com/512/270/270798.png",
+        name: "Audience Targeting",
+        src: "https://cdn-icons-png.flaticon.com/512/1041/1041384.png",
     },
     {
-        name: "Social Media",
-        src: "https://cdn-icons-png.flaticon.com/512/1384/1384014.png",
-    },
-    {
-        name: "Content Strategy",
-        src: "https://cdn-icons-png.flaticon.com/512/3135/3135745.png",
+        name: "Ad Copywriting",
+        src: "https://cdn-icons-png.flaticon.com/512/2921/2921222.png",
     },
     {
         name: "Analytics",
-        src: "https://cdn-icons-png.flaticon.com/512/3417/3417407.png",
+        src: "https://cdn-icons-png.flaticon.com/512/1828/1828884.png",
+    },
+    {
+        name: "A/B Testing",
+        src: "https://cdn-icons-png.flaticon.com/512/2839/2839021.png",
+    },
+    {
+        name: "Content Strategy",
+        src: "https://cdn-icons-png.flaticon.com/512/2921/2921220.png",
+    },
+    {
+        name: "Creative Design",
+        src: "https://cdn-icons-png.flaticon.com/512/1055/1055646.png",
     },
 ];
 
@@ -32,7 +40,7 @@ const About = () => {
     return (
         <section
             id="about"
-            className="relative px-6 lg:px-16 py-24 bg-gray-50 dark:bg-gray-900"
+            className="relative px-6 lg:px-16 py-20 bg-gradient-to-br from-indigo-50 via-purple-50 to-pink-50 dark:from-slate-900 dark:via-slate-950 dark:to-indigo-900"
         >
             <motion.div
                 className="max-w-6xl mx-auto text-center lg:text-left space-y-8"
@@ -40,18 +48,19 @@ const About = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8 }}
             >
-                <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 dark:text-white">
+                <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 dark:text-white">
                     About Me
                 </h2>
-                <p className="text-gray-600 dark:text-gray-300 text-lg lg:text-xl max-w-3xl mx-auto lg:mx-0">
-                    I'm <strong>Nazmus Sakib</strong>, a digital marketing specialist helping
-                    brands grow online with creative strategies, SEO optimization, performance
-                    ads, and social media campaigns. My goal is to deliver measurable results
-                    and build strong brand presence.
+
+                <p className="text-slate-700 dark:text-slate-300 text-base sm:text-lg leading-relaxed max-w-2xl mx-auto lg:mx-0">
+                    I'm <strong>Nazmus Sakib</strong>, a <strong>Meta Marketing Expert</strong> specializing in
+                    Facebook Ads and audience growth.
+                    I learned everything from home — through passion, patience, and practice.
+                    I help brands reach the right audience and grow faster with smart digital strategy.
                 </p>
 
                 {/* Skills Grid */}
-                <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 gap-6 pt-6 justify-items-center">
+                <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 gap-5 pt-6 justify-items-center">
                     {skills.map((skill, index) => (
                         <motion.div
                             key={skill.name}
@@ -60,14 +69,14 @@ const About = () => {
                             whileInView={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.5, delay: index * 0.1 }}
                         >
-                            <div className="w-16 h-16 sm:w-20 sm:h-20 bg-white dark:bg-gray-800 rounded-full flex items-center justify-center shadow-md group-hover:scale-110 transition-transform">
+                            <div className="w-14 h-14 sm:w-16 sm:h-16 bg-white dark:bg-slate-800 rounded-2xl flex items-center justify-center shadow-md group-hover:scale-110 group-hover:shadow-indigo-400/30 transition-all duration-300">
                                 <img
                                     src={skill.src}
                                     alt={skill.name}
-                                    className="w-10 h-10 sm:w-12 sm:h-12 object-contain"
+                                    className="w-8 h-8 sm:w-10 sm:h-10 object-contain"
                                 />
                             </div>
-                            <span className="mt-2 text-gray-700 dark:text-gray-200 text-sm sm:text-base font-medium text-center">
+                            <span className="mt-2 text-slate-700 dark:text-slate-200 text-xs sm:text-sm font-medium text-center">
                                 {skill.name}
                             </span>
                         </motion.div>
@@ -76,14 +85,14 @@ const About = () => {
 
                 {/* CTA Button */}
                 <motion.div
-                    className="pt-10 flex justify-center lg:justify-start"
+                    className="pt-8 flex justify-center lg:justify-start"
                     initial={{ opacity: 0, y: 10 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5, delay: 0.3 }}
                 >
                     <a
                         href="#contact"
-                        className="bg-indigo-600 hover:bg-indigo-700 text-white font-medium py-3 px-7 rounded-2xl shadow-lg transition-all"
+                        className="bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-700 hover:to-purple-700 text-white font-semibold py-2.5 px-7 rounded-2xl shadow-lg transition-all text-sm sm:text-base"
                     >
                         Hire Me
                     </a>
